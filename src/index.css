@@ -9,7 +9,8 @@ html {
 body {
   margin: 0;
   height: 100vh;
-  background: #000;
+
+  background: radial-gradient(rgb(94, 81, 99), #1a1f1d);
 
   display: grid;
   place-items: center;
