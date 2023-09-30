@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Overlay from "../Overlay/Overlay";
 import "../Form/Form.css";
 
 const Form = function (props) {
@@ -6,9 +7,6 @@ const Form = function (props) {
     "user-name-input": "",
     "user-age-input": "",
   };
-
-  // validation
-  /*   const [isValid, setValid] = useState(false); */
 
   // useState to store values and display on Ui
   const [defInputs, setInput] = useState(initialInput);
@@ -22,44 +20,69 @@ const Form = function (props) {
     }));
   };
 
+  //  validation for error handling
+  const [error, setError] = useState();
+
+  // onClick to remove modal
+  const removeModal = function () {
+    setError()
+  };
+
   // form submit handler
   const formSubmit = function (e) {
     e.preventDefault();
-    
 
-    if(defInputs["user-name-input"].trim().length === 0 || (+defInputs["user-age-input"].trim().length === 0 || +defInputs["user-age-input"] < 0)){
-      (alert('please fill in the field'))
-    }else{
-      console.log(defInputs["user-name-input"], defInputs["user-age-input"])
-      props.pullDataFunc(defInputs["user-name-input"], defInputs["user-age-input"])
+    if (
+      defInputs["user-name-input"].trim().length === 0 ||
+      +defInputs["user-age-input"].trim().length === 0 
+    ) {
+      setError({
+        title: "invalid input",
+        message: "please enter a valid name and age (non-empty values)",
+      });
+    } else if (+defInputs["user-age-input"] < 0) {
+      setError({
+        title: "invalid age",
+        message: "please enter a valid age of (age > 0)",
+      });
+    } else {
+      // console.log(defInputs["user-name-input"], defInputs["user-age-input"])
+      props.pullDataFunc(
+        defInputs["user-name-input"],
+        defInputs["user-age-input"]
+      );
+
+      setInput(initialInput)
     }
-
-   
   };
 
   return (
-    <form onSubmit={formSubmit} id="form-container">
-      <span>Username</span>
-      <input
-        onChange={(e) => userInput(e.target.id, e.target.value)}
-        id="user-name-input"
-        value={defInputs["user-name-input"]}
-        type="text"
-        placeholder="Enter name"
-      ></input>
-      <span>Age(years)</span>
-      <input
-        onChange={(e) => userInput(e.target.id, e.target.value)}
-        id="user-age-input"
-        value={defInputs["user-age-input"]}
-        type="number"
-        placeholder="Enter Age"
-      ></input>
+    <>
+      {error && <Overlay error={error} removeModal={removeModal} />}
 
-      <div className="btn-container">
-        <button type="submit">Add user</button>
-      </div>
-    </form>
+      <form onSubmit={formSubmit} id="form-container">
+        <span>Username</span>
+        <input
+          onChange={(e) => userInput(e.target.id, e.target.value)}
+          id="user-name-input"
+          value={defInputs["user-name-input"]}
+          type="text"
+          placeholder="Enter name"
+        ></input>
+        <span>Age(years)</span>
+        <input
+          onChange={(e) => userInput(e.target.id, e.target.value)}
+          id="user-age-input"
+          value={defInputs["user-age-input"]}
+          type="number"
+          placeholder="Enter Age"
+        ></input>
+
+        <div className="btn-container">
+          <button type="submit">Add user</button>
+        </div>
+      </form>
+    </>
   );
 };
 
