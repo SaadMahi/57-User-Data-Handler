@@ -25,7 +25,7 @@ const Form = function (props) {
 
   // onClick to remove modal
   const removeModal = function () {
-    setError()
+    setError();
   };
 
   // form submit handler
@@ -34,16 +34,16 @@ const Form = function (props) {
 
     if (
       defInputs["user-name-input"].trim().length === 0 ||
-      +defInputs["user-age-input"].trim().length === 0 
+      +defInputs["user-age-input"].trim().length === 0
     ) {
       setError({
         title: "invalid input",
         message: "please enter a valid name and age (non-empty values)",
       });
-    } else if (+defInputs["user-age-input"] < 0) {
+    } else if (+defInputs["user-age-input"] < 1) {
       setError({
         title: "invalid age",
-        message: "please enter a valid age of (age > 0)",
+        message: "please enter a valid age of (age > 1)",
       });
     } else {
       // console.log(defInputs["user-name-input"], defInputs["user-age-input"])
@@ -52,7 +52,7 @@ const Form = function (props) {
         defInputs["user-age-input"]
       );
 
-      setInput(initialInput)
+      setInput(initialInput);
     }
   };
 

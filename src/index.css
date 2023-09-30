@@ -10,7 +10,7 @@ body {
   margin: 0;
   height: 100vh;
 
-  background: radial-gradient(rgb(121, 83, 120), #1a1f1d);
+  background: radial-gradient(rgb(82, 65, 82), #1a1f1d);
 
   display: grid;
   place-items: center;
