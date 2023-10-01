@@ -15,3 +15,7 @@ body {
   display: grid;
   place-items: center;
 }
+
+#overlay-root{
+  position: fixed ;
+}

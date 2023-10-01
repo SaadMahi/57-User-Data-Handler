@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Overlay from "../Overlay/Overlay";
+import ReactDOM from "react-dom";
 import "../Form/Form.css";
 
 const Form = function (props) {
@@ -58,7 +59,11 @@ const Form = function (props) {
 
   return (
     <>
-      {error && <Overlay error={error} removeModal={removeModal} />}
+      {error &&
+        ReactDOM.createPortal(
+          <Overlay error={error} removeModal={removeModal} />,
+          document.getElementById("overlay-root")
+        )}
 
       <form onSubmit={formSubmit} id="form-container">
         <span>Username</span>
