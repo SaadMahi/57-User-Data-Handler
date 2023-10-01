@@ -1,0 +1,14 @@
+.userData-container{
+    background: #ffd;
+
+    padding: 0;
+
+}
+
+.userData-container li{
+    list-style: none;
+    padding: 1rem;
+    border: rgb(0, 0, 0) 1px solid;
+    width: 100%;
+}
+

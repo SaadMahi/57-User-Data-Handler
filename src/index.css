@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+
+  background: radial-gradient(rgb(82, 65, 82), #1a1f1d);
+
+  display: grid;
+  place-items: center;
+}
+
+#overlay-root{
+  position: fixed ;
+}
