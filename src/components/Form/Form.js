@@ -106,7 +106,7 @@ arrow functions from text input attributes and replace everything here*/
         )}
 
       <form onSubmit={formSubmit} id="form-container">
-        <span>Username</span>
+        <span>Name</span>
         <input
           // onChange={(e) => userInput(e.target.id, e.target.value)}
           ref={nameInputVal}
