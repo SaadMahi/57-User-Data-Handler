@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/57-User-Data-Handler/static/css/main.948a0d9f.css",
+    "main.js": "/57-User-Data-Handler/static/js/main.499bdf70.js",
+    "index.html": "/57-User-Data-Handler/index.html",
+    "main.948a0d9f.css.map": "/57-User-Data-Handler/static/css/main.948a0d9f.css.map",
+    "main.499bdf70.js.map": "/57-User-Data-Handler/static/js/main.499bdf70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.948a0d9f.css",
+    "static/js/main.499bdf70.js"
+  ]
+}
